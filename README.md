@@ -5,7 +5,7 @@
 - Dylan Massaro  
 - Alejandro O’Beirne Serrano  
 
-**Literature Review:** [literature-review.md](literature-review.md)
+**Literature Review:** [literature.md](literature-review.md)
 
 ---
 
