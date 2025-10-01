@@ -32,7 +32,6 @@ This project looks at how Wikipedia can be seen as a kind of social media, not j
 ## Methodology
 - **Data Collection**: Use the Wikipedia API to gather revision histories, talk page edits, and pageview statistics.  
 - **Comparative Analysis**: Compare Wikipedia’s participation dynamics to platforms like Reddit or Twitter, which include visible karma/likes.  
-- **Prototype**: Write a Python program (`test_wikipedia_api.py`) that demonstrates Wikipedia API functionality, such as fetching summaries and recent revisions. This small program acts as proof-of-concept for our analysis pipeline.  
 - **Future Work**: Expand analysis to measure participation burstiness, conflict resolution, and governance in action.  
 
 ---
