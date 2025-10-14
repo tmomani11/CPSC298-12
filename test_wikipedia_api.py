@@ -1,3 +1,18 @@
+#!/usr/bin/env python3
+"""
+week7.py — Compare Wikipedia topics by sustained attention (avg daily pageviews)
+
+Usage:
+  python week7.py "Machine learning" "Deep learning" "Artificial intelligence"
+  python week7.py --start 2025-09-14 --end 2025-10-13 "Taylor Swift" "Kanye West"
+
+Outputs:
+  - Pretty table to stdout
+  - results_week7.csv saved to the current directory
+
+Requires: requests  (pip install requests)
+"""
+
 import argparse
 import datetime as dt
 import csv
@@ -11,8 +26,11 @@ ACCESS = "all-access"   # desktop + mobile combined
 AGENT = "user"          # excludes bots
 GRAN = "daily"
 
-def yyyymmdd(d: dt.date) -> str:
-    return d.strftime("%Y%m%d")
+UA = {"User-Agent": "CPSC298-12-Week7 (contact: your-email@chapman.edu)"}
+
+def yyyymmdd00(d: dt.date) -> str:
+    # API expects YYYYMMDDHH; for daily use HH='00'
+    return d.strftime("%Y%m%d") + "00"
 
 def last_30_full_days(today=None):
     if today is None:
@@ -23,10 +41,11 @@ def last_30_full_days(today=None):
 
 def fetch_pageviews(title: str, start: dt.date, end: dt.date):
     safe = urllib.parse.quote(title.replace(" ", "_"), safe="")
-    url = f"{REST}/{PROJECT}/{ACCESS}/{AGENT}/{safe}/{GRAN}/{yyyymmdd(start)}/{yyyymmdd(end)}"
+    url = f"{REST}/{PROJECT}/{ACCESS}/{AGENT}/{safe}/{GRAN}/{yyyymmdd00(start)}/{yyyymmdd00(end)}"
     try:
-        r = requests.get(url, timeout=20)
+        r = requests.get(url, timeout=20, headers=UA)
         if r.status_code != 200:
+            # Return empty list if page is missing or API returns error
             return []
         items = r.json().get("items", [])
         return [int(it.get("views", 0)) for it in items]
