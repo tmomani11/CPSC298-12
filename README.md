@@ -39,3 +39,18 @@ This project looks at how Wikipedia can be seen as a kind of social media, not j
 ## Prototype Program
 The file `test_wikipedia_api.py` demonstrates how to connect to the Wikipedia API and fetch information. Currently, it retrieves an article summary and recent revisions for a specified topic.  
 
+## Research Question Week 7
+Which of several Wikipedia topics gets the most sustained attention (average daily pageviews) over the last 30 days?
+
+## Methodology
+- For each page, call the Wikimedia Pageviews REST API to fetch daily pageviews for the last 30 complete days.
+- Compute total and average per day for each page.
+- Rank by average/day (more robust than a single-day spike).
+- Save results to CSV for reproducibility.
+
+How to run:
+python week7.py "Machine learning" "Deep learning" "Artificial intelligence"
+(or whatever pages you want)
+
+## How these results answer the question
+The page with the highest average daily pageviews over the window has the most sustained attention among the compared topics.
