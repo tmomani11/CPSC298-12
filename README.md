@@ -35,22 +35,32 @@ This project looks at how Wikipedia can be seen as a kind of social media, not j
 - **Future Work**: Expand analysis to measure participation burstiness, conflict resolution, and governance in action.  
 
 ---
+## 🧩 Prototype Program
+The file `week7.py` demonstrates how to connect to the Wikipedia API and fetch information.  
+Currently, it retrieves article summaries and recent revisions, and also compares average daily pageviews for multiple topics.
 
-## Prototype Program
-The file `week7.py` demonstrates how to connect to the Wikipedia API and fetch information. Currently, it retrieves an article summary and recent revisions for a specified topic.  
+---
 
-## Research Question Week 7
-Which of several Wikipedia topics gets the most sustained attention (average daily pageviews) over the last 30 days?
+## 🧠 Research Question – Week 7
+**Which of several Wikipedia topics gets the most sustained attention (average daily pageviews) over the last 30 days?**
 
-## Methodology
-- For each page, call the Wikimedia Pageviews REST API to fetch daily pageviews for the last 30 complete days.
-- Compute total and average per day for each page.
-- Rank by average/day (more robust than a single-day spike).
-- Save results to CSV for reproducibility.
+---
 
-How to run:
-python week7.py "Machine learning" "Deep learning" "Artificial intelligence"
-(or whatever pages you want)
+## 📊 Methodology
+- For each page, call the **Wikimedia Pageviews REST API** to fetch daily pageviews for the last 30 complete days.  
+- Compute **total** and **average per day** for each page.  
+- Rank topics by **average daily pageviews** (a more stable measure than single-day spikes).  
+- Save results to a **CSV file** (`results_week7.csv`) for reproducibility.
 
-## How these results answer the question
-The page with the highest average daily pageviews over the window has the most sustained attention among the compared topics.
+---
+
+## ⚙️ How to Run
+1. Make sure Python 3 is installed.  
+2. Install the required dependency:
+   ```bash
+   pip install requests
+3. Python3 hw7.py
+
+## How These Results Answer the Question
+By averaging daily pageviews over a 30-day window, the program identifies which topic sustains the most continuous attention rather than short bursts of popularity.
+The topic with the highest average daily views (Artificial intelligence) therefore represents the one that garners the most persistent, ongoing public interest among the compared topics.
