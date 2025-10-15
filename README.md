@@ -59,7 +59,7 @@ Currently, it retrieves article summaries and recent revisions, and also compare
 2. Install the required dependency:
    ```bash
    pip install requests
-3. Python3 hw7.py
+3. Python3 hw7.py "name of topic"
 
 ## How These Results Answer the Question
 By averaging daily pageviews over a 30-day window, the program identifies which topic sustains the most continuous attention rather than short bursts of popularity.
