@@ -35,18 +35,18 @@ This project looks at how Wikipedia can be seen as a kind of social media, not j
 - **Future Work**: Expand analysis to measure participation burstiness, conflict resolution, and governance in action.  
 
 ---
-## 🧩 Prototype Program
+## Prototype Program
 The file `week7.py` demonstrates how to connect to the Wikipedia API and fetch information.  
 Currently, it retrieves article summaries and recent revisions, and also compares average daily pageviews for multiple topics.
 
 ---
 
-## 🧠 Research Question – Week 7
+##  Research Question – Week 7
 **Which of several Wikipedia topics gets the most sustained attention (average daily pageviews) over the last 30 days?**
 
 ---
 
-## 📊 Methodology
+##  Methodology
 - For each page, call the **Wikimedia Pageviews REST API** to fetch daily pageviews for the last 30 complete days.  
 - Compute **total** and **average per day** for each page.  
 - Rank topics by **average daily pageviews** (a more stable measure than single-day spikes).  
@@ -54,7 +54,7 @@ Currently, it retrieves article summaries and recent revisions, and also compare
 
 ---
 
-## ⚙️ How to Run
+##  How to Run
 1. Make sure Python 3 is installed.  
 2. Install the required dependency:
    ```bash
