@@ -1,0 +1,22 @@
+% Methodology
+% Be specific enough that someone could reproduce your work
+
+
+\label{sec:methodology}
+
+\subsection{Data Collection}
+Our study uses publicly available data from the Wikipedia API and the Wikimedia Pageviews REST API. We collected:
+\begin{itemize}
+    \item Revision histories to track editing patterns and bursts of activity,
+    \item Talk page discussions to capture instances of negotiation and conflict, and
+    \item Pageview statistics for measuring sustained public attention.
+\end{itemize}
+
+\subsection{Data Processing}
+Using a custom Python script (\texttt{week7.py}), we queried the APIs to retrieve edit histories and daily pageviews for selected topics over 30-day periods. These results were stored in CSV format for reproducibility and comparative analysis.
+
+\subsection{Comparative Analysis}
+We compare Wikipedia’s participation dynamics with those observed on platforms such as Reddit and Twitter, where visible feedback metrics (upvotes, likes, retweets) heavily influence engagement. Our approach focuses on how Wikipedia maintains motivation and community regulation without these mechanisms.
+
+\subsection{Rationale for Method Choices}
+We chose quantitative pageview data to capture sustained user attention and qualitative analysis of talk pages to observe governance in action. This mixed-method approach highlights both the behavioral and structural factors enabling large-scale collaboration in a non-gamified environment.
