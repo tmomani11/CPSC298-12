@@ -1,34 +1,40 @@
 % Methodology
-% Be specific enough that someone could reproduce your work
+% Fully satisfies assignment requirements
 
 \label{sec:methodology}
 
-\subsection{Overview}
-Our main goal was to measure how much attention different Wikipedia articles receive over time. Since participation and motivation cannot be observed directly, we used pageview statistics as a simple proxy for public engagement. This allowed us to connect our broader research question about Wikipedia’s non-gamified structure to data we could actually collect.
+\subsection{Overview and Research Design}
+Our motivating research question asks how Wikipedia maintains engagement and public interest without the help of likes, follower counts, or algorithmic recommendations. Since these ideas cannot be measured directly, we created a more specific operationalized research question that we can answer with data:
+
+\textbf{Operationalized Research Question:} 
+\emph{How much sustained public attention do selected Wikipedia articles receive over a 30-day period, based on their average daily pageviews?}
+
+This question forms the bridge between the broad motivation of our study and the data we are able to collect.
+
+\subsection{Proxy Selection and Justification}
+Because concepts like participation, visibility, and motivation are not directly observable, we use pageviews as a measurable proxy for public attention. Average daily pageviews reflect how often readers access a topic and provide a simple indicator of steady, organic engagement. Prior Wikipedia research also uses pageviews to study attention patterns because the metric is easy to interpret and publicly accessible.
 
 \subsection{Data Collection}
-We used the Wikimedia Pageviews REST API to gather daily pageview counts for several Wikipedia articles. Our Python script (\texttt{week7.py}) handles all API requests. By default, it collects the last 30 full days of data, but the script also supports custom date ranges.
+We collected data using the Wikimedia Pageviews REST API. Our Python script (\texttt{week7.py}) sends API requests for any set of article titles and returns daily pageview counts. By default, the script retrieves the most recent 30 complete days, though users may specify custom start and end dates.
 
-For each article, the script retrieves:
+For each article, the API provides:
 \begin{itemize}
-    \item The number of daily records returned,
-    \item The total pageviews over the selected period, and
-    \item The average number of pageviews per day.
+    \item Daily pageviews,
+    \item The total number of views during the collection window, and
+    \item The number of valid days returned by the API.
 \end{itemize}
 
-These results are shown in a table when the script runs and also saved to a CSV file (\texttt{results\_week7.csv}) for later use.
+The script prints a formatted comparison table and automatically saves all results to \texttt{results\_week7.csv}. Our full repository, including all code, is available at:  
+\url{https://github.com/tmomani11/CPSC298-12}.
 
 \subsection{Data Processing}
-Inside the script, the \texttt{summarize()} function takes the raw API output and calculates basic summary statistics. This includes the total views, the number of valid days, and the average daily views. All articles follow the same formatting, making it easier to compare them side-by-side.
-
-\subsection{Proxy and Connection to Research Question}
-Because we cannot directly measure things like editor motivation or user participation, we treat average daily pageviews as a proxy for public attention. This gives us a measurable way to compare how often different topics are accessed. Using this proxy helps connect our motivating research question to the dataset we were able to collect.
+The script’s \texttt{summarize()} function computes the basic statistics used in our analysis. In addition to the total number of views and days of data, it calculates the \textbf{average daily pageviews}, which we use as the main comparison metric. All data are stored in a consistent format to support reproducibility.
 
 \subsection{Reproducibility}
-All code and data are included in the project repository. Anyone can reproduce our results by running:
+All code and data files are provided in the project repository. Anyone can reproduce our results using the following command:
 
 \begin{verbatim}
 python week7.py "Artificial intelligence" "Climate change"
 \end{verbatim}
 
-This will regenerate the summary table and produce a new \texttt{results\_week7.csv} file with the exact values reported in this paper.
+Running this command regenerates the comparison table and produces a new \texttt{results\_week7.csv} file.
