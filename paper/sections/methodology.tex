@@ -4,41 +4,31 @@
 \label{sec:methodology}
 
 \subsection{Overview}
-Our motivating research question asks how Wikipedia sustains engagement and collective attention without gamified incentive structures. To operationalize this, we analyze patterns of \emph{sustained public attention} across Wikipedia articles using pageview data. Because concepts such as motivation and participation cannot be directly measured, we use pageviews as a quantitative proxy for public engagement.
+Our main goal was to measure how much attention different Wikipedia articles receive over time. Since participation and motivation cannot be observed directly, we used pageview statistics as a simple proxy for public engagement. This allowed us to connect our broader research question about Wikipedia’s non-gamified structure to data we could actually collect.
 
 \subsection{Data Collection}
-All data were collected using the Wikimedia Pageviews REST API. Our custom Python script (\texttt{week7.py}) retrieves daily pageview counts for any set of Wikipedia article titles. By default, the script gathers the last 30 full days of pageviews, though custom date windows can also be specified.
+We used the Wikimedia Pageviews REST API to gather daily pageview counts for several Wikipedia articles. Our Python script (\texttt{week7.py}) handles all API requests. By default, it collects the last 30 full days of data, but the script also supports custom date ranges.
 
-For each article, the script collects:
+For each article, the script retrieves:
 \begin{itemize}
-    \item Daily view counts,
-    \item Total views over the window, and
-    \item Average views per day (a proxy for sustained attention).
+    \item The number of daily records returned,
+    \item The total pageviews over the selected period, and
+    \item The average number of pageviews per day.
 \end{itemize}
 
-These values are printed as a comparison table and saved to \texttt{results\_week7.csv} in the project directory for reproducibility.
+These results are shown in a table when the script runs and also saved to a CSV file (\texttt{results\_week7.csv}) for later use.
 
 \subsection{Data Processing}
-The data returned by the API are summarized using the \texttt{summarize()} function inside \texttt{week7.py}. This function normalizes the output by calculating:
-\begin{itemize}
-    \item \texttt{days}: number of valid daily records returned by the API,
-    \item \texttt{total}: cumulative pageviews, and
-    \item \texttt{avg\_per\_day}: average daily attention to the article.
-\end{itemize}
+Inside the script, the \texttt{summarize()} function takes the raw API output and calculates basic summary statistics. This includes the total views, the number of valid days, and the average daily views. All articles follow the same formatting, making it easier to compare them side-by-side.
 
-The output CSV and printed table provide a consistent summary format for comparing topics.
-
-\subsection{Proxy and Bridge to Research Question}
-Because participation, visibility, and motivation cannot be directly observed, we operationalize engagement using \emph{average daily pageviews}. This serves as a measurable proxy for attention on a platform without algorithmic recommendation or social feedback.
-
-This proxy creates a bridge between our motivating question and our operationalized question: it allows us to quantify how different Wikipedia topics attract and sustain public attention in the absence of likes, follower counts, or algorithmic promotion.
+\subsection{Proxy and Connection to Research Question}
+Because we cannot directly measure things like editor motivation or user participation, we treat average daily pageviews as a proxy for public attention. This gives us a measurable way to compare how often different topics are accessed. Using this proxy helps connect our motivating research question to the dataset we were able to collect.
 
 \subsection{Reproducibility}
-All code used to collect and process data is included in the \texttt{/src} directory of the repository. The script \texttt{week7.py} can be executed directly to reproduce the results in this paper:
+All code and data are included in the project repository. Anyone can reproduce our results by running:
 
 \begin{verbatim}
 python week7.py "Artificial intelligence" "Climate change"
 \end{verbatim}
 
-All generated data files are saved in the project directory for verification and replication.
-
+This will regenerate the summary table and produce a new \texttt{results\_week7.csv} file with the exact values reported in this paper.
