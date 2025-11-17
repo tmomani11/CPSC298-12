@@ -1,13 +1,16 @@
 % Results
-% Present findings clearly with figures and tables
-% Separate results from interpretation (that goes in Discussion)
+% Follows assignment: state operationalized RQ, focus on findings only
 
 \label{sec:results}
 
-Using our \texttt{week7.py} script, we collected daily pageview data for several Wikipedia articles over the most recent 30 full days. The script produced a comparison table and a CSV file that list, for each article, how many days of data were returned, the total number of pageviews, and the average number of views per day.
+This section answers our operationalized research question:
+\emph{How much sustained public attention do selected Wikipedia articles receive over a 30-day period based on average daily pageviews?}
+We connect this to our motivating question by using pageviews as a proxy for understanding how attention forms on a platform without gamified engagement.
 
-The articles we checked showed different levels of sustained attention. Topics like \textit{Artificial intelligence} and \textit{Climate change} had the highest average daily pageviews, meaning they consistently drew more interest throughout the month. Other articles had lower averages but still received steady daily traffic, showing that Wikipedia pages get regular attention even without any kind of algorithmic boost.
+Using our \texttt{week7.py} script, we collected daily pageview data for multiple Wikipedia articles. For each article, the script reported the total number of views, the number of valid days, and the average number of pageviews per day. These values were saved in \texttt{results\_week7.csv} and displayed in a comparison table.
 
-In a few cases, the daily pageview data showed noticeable spikes. These were short bursts where an article received more views than usual on a particular day. The average daily pageviews helped us compare the overall attention each topic received, while the day-by-day data showed how that attention changed over time.
+Across all sampled articles, we found clear differences in sustained attention. Topics such as \textit{Artificial intelligence} and \textit{Climate change} showed the highest average daily pageviews, indicating that these articles consistently attracted more readers throughout the month. Other topics had lower averages but still received steady daily traffic, showing that most Wikipedia pages maintain a baseline level of activity.
 
-All results can be reproduced by running the script, and the full data are saved in the project directory.
+The daily counts also revealed occasional spikes for certain topics, where the number of views sharply increased on specific days. These spikes appeared as short bursts in the data and stood out compared to the surrounding daily values. The average daily pageviews offered a simple way to compare topics overall, while the day-by-day data highlighted changes in attention over time.
+
+All numerical results can be reproduced using the provided script and data files.
