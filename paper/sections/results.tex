@@ -4,6 +4,10 @@
 
 \label{sec:results}
 
-Preliminary analysis of our 30-day dataset shows consistent participation across Wikipedia topics despite the absence of algorithmic promotion or social feedback. Articles such as \textit{Artificial intelligence} and \textit{Climate change} exhibited the highest average daily pageviews, confirming ongoing, distributed engagement rather than short-lived viral spikes.
+Using our \texttt{week7.py} script, we collected daily pageview data for several Wikipedia articles over the most recent 30 full days. The script produced a comparison table and a CSV file that list, for each article, how many days of data were returned, the total number of pageviews, and the average number of views per day.
 
-Revision logs indicate bursty editing patterns that often correspond to news events, suggesting that editors are motivated by relevance and collective responsiveness rather than personal gain. Talk page data further reveal a balance between conflict and resolution: even contentious debates eventually lead to consensus-building, reflecting Wikipedia’s strong governance norms.
+The articles we checked showed different levels of sustained attention. Topics like \textit{Artificial intelligence} and \textit{Climate change} had the highest average daily pageviews, meaning they consistently drew more interest throughout the month. Other articles had lower averages but still received steady daily traffic, showing that Wikipedia pages get regular attention even without any kind of algorithmic boost.
+
+In a few cases, the daily pageview data showed noticeable spikes. These were short bursts where an article received more views than usual on a particular day. The average daily pageviews helped us compare the overall attention each topic received, while the day-by-day data showed how that attention changed over time.
+
+All results can be reproduced by running the script, and the full data are saved in the project directory.
